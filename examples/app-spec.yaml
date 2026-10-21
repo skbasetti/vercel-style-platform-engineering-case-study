@@ -1,0 +1,23 @@
+# Fictional, conceptual input. No API or deployment tooling consumes this file.
+apiVersion: portfolio.example/v1alpha1
+kind: ApplicationSpec
+metadata:
+  name: sample-web
+spec:
+  owner: sample-team
+  source:
+    repository: https://github.com/example/sample-web
+  runtime:
+    profile: http
+    port: 8080
+    healthPath: /health
+  environment: development
+  exposure:
+    mode: private
+  configuration:
+    LOG_LEVEL: info
+  secretReferences:
+    - name: application-settings
+  resources:
+    cpuRequest: 100m
+    memoryRequest: 128Mi
